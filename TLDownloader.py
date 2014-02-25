@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import urllib.request
-import urllib.response
+import urllib.parse
 import re
 import os
 import sys
@@ -27,6 +27,7 @@ def get_all_replays(page_number, destination_dir):
 def get_replay(rep_url, destination_dir):
   rep = urllib.request.urlopen(rep_url)
   name = rep.geturl().rsplit('/', 1)[-1]
+  name = urllib.parse.unquote(name)
   fname = os.path.join(destination_dir, name)
   with open(fname, 'wb') as f:
     shutil.copyfileobj(rep, f)
