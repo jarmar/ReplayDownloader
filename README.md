@@ -1,5 +1,5 @@
 # Usage
 
-    ./TLDownload n dir
+    ./TLDownload.py n dir
 
 downloads all replays on page `n` into directory `dir`.
